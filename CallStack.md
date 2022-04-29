@@ -56,7 +56,7 @@ retira o primeiro item da queue e **envia para a call stack** para ser executado
 1. Callbacks de código assíncrono não são executadas imediatamente
 2. Essas callbacks ficam em uma fila
 3. O event loop fica verificando a message queue e a call stack
-4. Em um timeout, por exemplo, quando passa o tempo especificado, a callback é mandada para a message queue
+4. Em um timeout, por exemplo, quando passa o tempo especificado, a callback é mandada para o event loop
 5. Quando a call stack está vazia, ele manda o primeiro item da queue para a call stack
 6. Cada mensagem é totalmente processada antes de outra começar a ser executada
 7. Pode ficar starved (quando tem uma função muito lenta rodando ou muitas, isso atrasa a excução do código assíncrono, mesmo que já tenha passado o tempo determinado nele)
