@@ -1,8 +1,8 @@
 # Call Stack (Pilha de camadas)
 
 ### Definição
-Estrutura de dados que registra chamadas de fuções (basicamente, em que ponto do programa a execução se encontra).
-Se uma função é chamada, ela é **adicionada (pushed) ao fim da stack** e quando ela retorna, é **retirada (popped) do fim da stack**.
+Estrutura de dados que registra chamadas de funções (basicamente, em que ponto do programa a execução se encontra).
+Se uma função é chamada, ela é **adicionada (pushed) n fim da stack** e quando ela retorna, é **retirada (popped) do fim da stack**.
 Utiliza o princípio **Last in, First out** para armazenar e gerir as **chamadas das funções**.
 
 ### Resumo
