@@ -8,16 +8,18 @@ Utiliza o princípio **Last in, First out** para armazenar e gerir as **chamadas
 ### Resumo
 
 1. Estrutura de dados
-2. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
-3. Cada vez que uma função é invocada, é criado um stack frame
-4. Modelo LIFO (Last in, First Out)
-5. Acompanha a execução do programa
-6. Execução de funções feita **uma por vez**, **top to bottom**
-7. É síncrona
-8. Quando uma função chama outra, a chamadora fica pausada até a chamada retornar e ser retirada da stack
-9. Possui um limite de chamadas de função (16000 frames no Chrome)
-10. Exceder o limite de chamadas vai gerar um RangeError
-11. O acúmulo excessivo de chamadas recursivas gera um Stack Overflow
+2. Dois métodos: **push** e **pop**
+3. A primeira coisa que é mandada para a Call Stack é a main() (global)
+4. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
+5. Cada vez que uma função é invocada, é criado um stack frame
+6. Modelo LIFO (Last in, First Out)
+7. Acompanha a execução do programa
+8. Execução de funções feita **uma por vez**, **top to bottom**
+9. É síncrona
+10. Quando uma função chama outra, a chamadora fica pausada até a chamada retornar e ser retirada da stack
+11. Possui um limite de chamadas de função (16000 frames no Chrome)
+12. Exceder o limite de chamadas vai gerar um RangeError
+13. O acúmulo excessivo de chamadas recursivas gera um Stack Overflow
 
 # Heap
 
@@ -57,7 +59,7 @@ retira o primeiro item da queue e **envia para a call stack** para ser executado
 4. Quando a call stack está vazia, ele manda o primeiro item da queue para a call stack
 5. Cada mensagem é totalmente processada antes de outra começar a ser executada
 
-#JavaScript Engine
+# JavaScript Engine
 
 ### Definição
 É um **interpretador single-threaded** composto pelo memory heap e **apenas uma call stack**.
@@ -66,4 +68,22 @@ retira o primeiro item da queue e **envia para a call stack** para ser executado
 1. È um interpretador de código
 2. É single-threaded (realiza uma ação de cada vez)
 3. É composto pelo memory heap e por uma call stack
+
+# Execution Context
+
+### Definição
+É o **ambiente no qual o código JavaScript será executado**. Pode ser um contexto global (variáveis amazenadas na **Global memory**) ou local.
+Esse ambiente/ contexto determina quais variáveis estarão disponíveis para serem manipuladas.
+
+### Explicações
+Quando o código JS é executado, são criadas duas coisas:
+1.Um Global Execution Context
+2.Uma Global Memory (Global Scope / Global Variable Environment)
+
+### Resumo
+1. È um ambiente no qual o código será executado
+2. Basicamente, é a caixinha do Stack Frame com tudo que há nela
+3. Pode ser local ou global
+4. global = acessível em qualquer parte do código
+5. local = acessível onde foi criado e em maiores profundidades dentro desse contexto
 
