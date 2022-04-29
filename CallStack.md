@@ -13,7 +13,7 @@ Utiliza o princípio **Last in, First out** para armazenar e gerir as **chamadas
 4. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
 5. Cada vez que uma função é invocada, é criado um stack frame
 6. Modelo LIFO (Last in, First Out)
-7. Acompanha a execução do programa
+7. Acompanha a execução do programa (qual função está sendo executada e quais funções são chamadas de dentro dela)
 8. Execução de funções feita **uma por vez**, **top to bottom**
 9. É síncrona
 10. Quando uma função chama outra, a chamadora fica pausada até a chamada retornar e ser retirada da stack
