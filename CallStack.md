@@ -77,9 +77,13 @@ retira o primeiro item da queue e **envia para a call stack** para ser executado
 É o **ambiente no qual o código JavaScript será executado**. Pode ser um contexto global (variáveis amazenadas na **Global memory**) ou local.
 Esse ambiente/ contexto determina quais variáveis estarão disponíveis para serem manipuladas.
 
+Serve basicamente para dividir o código em partes significantes para que o Engine possa gerir toda a complexidade de interpretar e executar esse código.
+
+O primeiro execution context a ser criado é o **Global Execution Context**
+
 ### Explicações
 Quando o código JS é executado, são criadas duas coisas:
-1.Um Global Execution Context
+1.Um Global Execution Context (Global Object + this)
 2.Uma Global Memory (Global Scope / Global Variable Environment)
 
 ### Resumo
@@ -92,7 +96,7 @@ Quando o código JS é executado, são criadas duas coisas:
 
 ### 3 tipos de Execution Context
 1. Global Execution Context: É o padrão. Todo código que não está dentro de uma função está no Global Execution Context. Só existe 1 em um programa
-2. Functional Execution Context: Sempre que uma função é invocada, um Contexto de Execução Funcional é criado
+2. Functional Execution Context: **Sempre que uma função é invocada**, um Contexto de Execução Funcional é criado
 3. Eval Function Execution Context: Cada vez que eval() é usada, é criado um novo contexto de execução
 
 ### 2 fases para a criação de um execution context
@@ -101,7 +105,13 @@ Quando o código JS é executado, são criadas duas coisas:
 
 # Creation Phase
 
-É nessa fase que as **Function declarations** sofrem **hoisting**
+É nessa fase que as **Function declarations** sofrem **hoisting** e é alocado espaço para as variáveis e funções.
+
+### Passos
+1. Cria um objeto global (ou objeto arguments se for a criação de um Functional Execution Context)
+2. Cria o objeto **this**
+3. Aloca espaço para variáveis e funções
+4. Atribui undefined a vars e coloca as **function declarations na memória**
 
 ### Começa criando duas coisas
 1. Lexical Environment
@@ -169,7 +179,18 @@ Diferença no ES6
 
 # Execution Phase
 
-É aqui que as variáveis são inicializadas (ligadas aos valores atribuídos) e o código é executado
+É aqui que as variáveis são inicializadas (ligadas aos valores atribuídos) e o código é **executado linha por linha**.
+Quando ela acaba, o execution context é **retirado da call stack**.
+
+# Scope
+
+Definição: é o atual Execution Context. Consiste em 'Onde as variáveis são acessíveis'. Cada execution context tem seu próprio **Variable Environment**. Se houver uma tentativa de acessar uma variável que não existe no contexto de execução atual, ela vai ser buscada nos contextos superiores (**Scope Chain**)!
+
+Exceção: GERALMENTE uma variável não pode ser acessada depois que seu **execution context** foi removido da call stack (elas são locally scoped). EXCETO NO CASO DE CLOSURES (funções que retornam outra função). A função interna vai ter acesso ao Variable Environment da função externa que já saiu da call stack. Isso porque quando a função interna foi criada, seu Variable Environment englobava as variáveis presentes na função extern, **então ela pode acessar essas variáveis via Scope Chain**.
+
+# Global variables
+
+Definição: sempre que uma variável é criada no contexto de execução global, ela vira uma propriedade do Global Object e é acessível em qualquer parte do código. Se uma variável for criada **sem declaração** fora do strict mode, ela também fará parte do Global Object e, consequentemente, será acessível por todo o código.
 
 
 
