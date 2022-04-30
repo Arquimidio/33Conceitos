@@ -83,9 +83,93 @@ Quando o código JS é executado, são criadas duas coisas:
 2.Uma Global Memory (Global Scope / Global Variable Environment)
 
 ### Resumo
-1. È um ambiente no qual o código será executado
-2. Basicamente, é a caixinha do Stack Frame com tudo que há nela
-3. Pode ser local ou global
-4. global = acessível em qualquer parte do código
-5. local = acessível onde foi criado e em maiores profundidades dentro desse contexto
+1. É um ambiente no qual o código será executado
+3. Basicamente, é a caixinha do Stack Frame com tudo que há nela
+4. Sempre que um código é executado, ele é executado dentro de um execution context
+5. Pode ser local ou global
+6. global = acessível em qualquer parte do código
+7. local = acessível onde foi criado e em maiores profundidades dentro desse contexto
+
+### 3 tipos de Execution Context
+1. Global Execution Context: É o padrão. Todo código que não está dentro de uma função está no Global Execution Context. Só existe 1 em um programa
+2. Functional Execution Context: Sempre que uma função é invocada, um Contexto de Execução Funcional é criado
+3. Eval Function Execution Context: Cada vez que eval() é usada, é criado um novo contexto de execução
+
+### 2 fases para a criação de um execution context
+1. Creation Phase
+2. Execution Phase
+
+# Creation Phase
+
+É nessa fase que as **Function declarations** sofrem **hoisting**
+
+### Começa criando duas coisas
+1. Lexical Environment
+2. Variable Environment
+
+### Lexical Environment
+É uma estrutura que armazena os nomes de variáveis e referências a funções. É como se fosse um objeto que descreve o ambiente 
+
+Código
+```
+var a = 20;
+var b = 40;
+function foo() {
+  console.log('bar');
+}
+```
+
+Lexical Environment
+```
+lexicalEnvironment = {
+  a: 20,
+  b: 40,
+  foo: <ref. to foo function>
+}
+```
+
+#### 3 Componentes
+
+1. Environment Record (Declarative Environment Record (variáveis e funções + arguments object) e Object Environment Record (referências a objetos))
+2. Reference to the outer environment (link ligado ao lexical environment externo para permitir a busca de variáveis nesse ambiente)
+3. **this** binding (globalmente, refere-se a window, em funções, depende de como a função foi invocada)
+
+#### Lexical Environment em pseudocódigo
+```
+GlobalExectionContext = {
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: "Object",
+      // Identifier bindings go here
+    }
+    outer: <null>,
+    this: <global object>
+  }
+}
+
+FunctionExectionContext = {
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: "Declarative",
+      // Identifier bindings go here
+    }
+    outer: <Global or outer function environment reference>,
+    this: <depends on how function is called>
+  }
+}
+```
+
+### Variable Environment
+
+Definição: é um tipo de Lexical Environment. Refere-se ao Lexical Environment que tem um Environment Record que armazena Variable Statements dentro desse execution context.
+
+Diferença no ES6
+1. Lexical Environment: guarda function declarations, let e const
+2. Variable Environment: guarda var
+
+# Execution Phase
+
+É aqui que as variáveis são inicializadas (ligadas aos valores atribuídos) e o código é executado
+
+
 
