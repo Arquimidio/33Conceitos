@@ -5,6 +5,8 @@ Estrutura de dados que registra chamadas de funções (basicamente, em que ponto
 Se uma função é chamada, ela é **adicionada (pushed) no fim da stack** e quando ela retorna, é **retirada (popped) do fim da stack**.
 Utiliza o princípio **Last in, First out** para armazenar e gerir as **chamadas das funções**.
 
+Os elementos presentes na call stack (frutos da invocação de funções) são chamados de Stack Frames, eles basicamente contêm informações sobre a função que foi invocada.
+
 ### Resumo
 
 1. Estrutura de dados
@@ -12,14 +14,22 @@ Utiliza o princípio **Last in, First out** para armazenar e gerir as **chamadas
 3. A primeira coisa que é mandada para a Call Stack é a main() (global)
 4. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
 5. Cada vez que uma função é invocada, é criado um stack frame
-6. Modelo LIFO (Last in, First Out)
-7. Acompanha a execução do programa (qual função está sendo executada e quais funções são chamadas de dentro dela)
-8. Execução de funções feita **uma por vez**, **top to bottom**
-9. É síncrona
-10. Quando uma função chama outra, a chamadora fica pausada até a chamada retornar e ser retirada da stack
-11. Possui um limite de chamadas de função (16000 frames no Chrome)
-12. Exceder o limite de chamadas vai gerar um RangeError
-13. O acúmulo excessivo de chamadas recursivas gera um Stack Overflow
+7. Modelo LIFO (Last in, First Out)
+9. Acompanha a execução do programa (qual função está sendo executada e quais funções são chamadas de dentro dela)
+10. A função que está no topo é a última que foi chamada e a que está embaixo é a primeira
+11. Execução de funções feita **uma por vez**, **top to bottom**
+12. A função é retirada do topo da call stack (popped) quando ela retorna
+13. É síncrona
+14. Quando uma função chama outra, a chamadora fica pausada até a chamada retornar e ser retirada da stack
+15. Possui um limite de chamadas de função (16000 frames no Chrome)
+16. Exceder o limite de chamadas vai gerar um RangeError
+17. O acúmulo excessivo de chamadas recursivas gera um Stack Overflow
+
+### Analogia
+
+Pense na Call Stack como uma **lista de tarefas** das invocações de funções.
+
+LIFO = Pilha de livros (se eu quero pegar o livro debaixo, eu tenho que tirar os de cima para não bagunçar tudo)
 
 # Heap
 
@@ -191,6 +201,15 @@ Exceção: GERALMENTE uma variável não pode ser acessada depois que seu **exec
 # Global variables
 
 Definição: sempre que uma variável é criada no contexto de execução global, ela vira uma propriedade do Global Object e é acessível em qualquer parte do código. Se uma variável for criada **sem declaração** fora do strict mode, ela também fará parte do Global Object e, consequentemente, será acessível por todo o código.
+
+# Recursão
+
+Definição: uma função que chama a si mesma.
+
+### Dividida em duas partes
+
+1. Base Case (para a recursão quando é atingido)
+3. Recursive Case (mantém a recursão rodando)
 
 
 
