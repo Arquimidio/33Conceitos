@@ -202,7 +202,7 @@ Quando ela acaba, o execution context é **retirado da call stack**.
 
 Definição: é o atual Execution Context. Consiste em 'Onde as variáveis são acessíveis'. Cada execution context tem seu próprio **Variable Environment**. Se houver uma tentativa de acessar uma variável que não existe no contexto de execução atual, ela vai ser buscada nos contextos superiores (**Scope Chain**)!
 
-Exceção: GERALMENTE uma variável não pode ser acessada depois que seu **execution context** foi removido da call stack (elas são locally scoped). EXCETO NO CASO DE CLOSURES (funções que retornam outra função). A função interna vai ter acesso ao Variable Environment da função externa que já saiu da call stack. Isso porque quando a função interna foi criada, seu Variable Environment englobava as variáveis presentes na função extern, **então ela pode acessar essas variáveis via Scope Chain**.
+Exceção: GERALMENTE uma variável não pode ser acessada depois que seu **execution context** foi removido da call stack (elas são locally scoped). EXCETO NO CASO DE **CLOSURES** (funções que retornam outra função). A função interna vai ter acesso ao Variable Environment da função externa que já saiu da call stack. Isso porque quando a função interna foi criada, seu Variable Environment englobava as variáveis presentes na função extern, **então ela pode acessar essas variáveis via Scope Chain**.
 
 # Global variables
 
