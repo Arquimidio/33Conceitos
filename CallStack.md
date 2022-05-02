@@ -104,6 +104,7 @@ Quando o código JS é executado, são criadas duas coisas:
 5. Pode ser local ou global
 6. global = acessível em qualquer parte do código
 7. local = acessível onde foi criado e em maiores profundidades dentro desse contexto
+8. Apenas 1 Global Execution Context
 
 ### 3 tipos de Execution Context
 1. Global Execution Context: É o padrão. Todo código que não está dentro de uma função está no Global Execution Context. Só existe 1 em um programa
@@ -187,6 +188,10 @@ Definição: é um tipo de Lexical Environment. Refere-se ao Lexical Environment
 Diferença no ES6
 1. Lexical Environment: guarda function declarations, let e const
 2. Variable Environment: guarda var
+
+### Hoisting
+
+Definição: é o processo de atribuir o valor **undefined** a variáveis durante a **creation phase**
 
 # Execution Phase
 
