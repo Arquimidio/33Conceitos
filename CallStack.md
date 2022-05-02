@@ -10,10 +10,11 @@ Os elementos presentes na call stack (frutos da invocação de funções) são c
 ### Resumo
 
 1. Estrutura de dados
-2. Dois métodos: **push** e **pop**
-3. A primeira coisa que é mandada para a Call Stack é a main() (global)
-4. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
-5. Cada vez que uma função é invocada, é criado um stack frame
+2. Fica na memória RAM
+3. Dois métodos: **push** e **pop**
+4. A primeira coisa que é mandada para a Call Stack é a main() (global)
+5. Armazenamento temporário de **stack frames** (fuções + ambiente (variáveis + parâmetros))
+6. Cada vez que uma função é invocada, é criado um stack frame
 7. Modelo LIFO (Last in, First Out)
 9. Acompanha a execução do programa (qual função está sendo executada e quais funções são chamadas de dentro dela)
 10. A função que está no topo é a última que foi chamada e a que está embaixo é a primeira
@@ -94,7 +95,7 @@ O primeiro execution context a ser criado é o **Global Execution Context**
 ### Explicações
 Quando o código JS é executado, são criadas duas coisas:
 1.Um Global Execution Context (Global Object + this)
-2.Uma Global Memory (Global Scope / Global Variable Environment)
+2.Uma Global Memory (Global Scope / Global Variable Environment -> Tudo que é encontrado na execução do código e guardado na memória global)
 
 ### Resumo
 1. É um ambiente no qual o código será executado
@@ -204,12 +205,12 @@ Definição: sempre que uma variável é criada no contexto de execução global
 
 # Recursão
 
-Definição: uma função que chama a si mesma.
+Definição: uma função que chama a si mesma. Essa função ficará chamando a si mesma até que o Base Case seja satisfeito.
 
 ### Dividida em duas partes
 
 1. Base Case (para a recursão quando é atingido)
-3. Recursive Case (mantém a recursão rodando)
+2. Recursive Case (mantém a recursão rodando)
 
 
 
