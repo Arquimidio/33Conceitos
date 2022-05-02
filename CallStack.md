@@ -143,8 +143,8 @@ function foo() {
 Lexical Environment
 ```
 lexicalEnvironment = {
-  a: 20,
-  b: 40,
+  a: undefined,
+  b: undefined,
   foo: <ref. to foo function>
 }
 ```
