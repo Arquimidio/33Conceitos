@@ -44,4 +44,4 @@ Definição: uma variável é basicamente um container para dados. É convencion
 # Sobre o heap e a stack
 
 Call Stack = armazena **value types** (tipos primitivos)
-Memory Heap = armazena **reference types** (objetos)
+Memory Heap = armazena **reference types** (objetos) 
