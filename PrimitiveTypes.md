@@ -18,7 +18,7 @@ let outroCinco = cinco; // cinco e outroCinco são cincos diferentes. O valor da
 
 ### Resumo
 1. Tipos primitivos são **imutáveis**
-2. Tipos primitivos são **passados por valor**
+2. Tipos primitivos são **passados e também comparados por valor**
 
 # Tipos não primitivos
 
