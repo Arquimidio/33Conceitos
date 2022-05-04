@@ -4,8 +4,8 @@
 Definição: tipos que são **passados por valor** (copiados) e **armazenados na call stack** (elementos ficam um em cima do outro)
 
 ### Quais são?
-1. String
-2. Number
+1. String (cadeias de caracteres)
+2. Number (floats e ints são do mesmo data type)
 3. Boolean
 4. Undefined
 5. Null
@@ -15,6 +15,10 @@ Definição: tipos que são **passados por valor** (copiados) e **armazenados na
 let cinco = 5;
 let outroCinco = cinco; // cinco e outroCinco são cincos diferentes. O valor da variável **cinco** foi **integralmente copiado** para **outroCinco**
 ```
+
+### Resumo
+1. Tipos primitivos são **imutáveis**
+2. Tipos primitivos são **passados por valor**
 
 # Tipos não primitivos
 
@@ -27,3 +31,17 @@ Lembre-se que funções e arrays também são objetos.
 let pessoa = { 'name': 'gabriel' };
 let mesmaPessoa = pessoa; // pessoa e mesmaPessoa guardam a mesma referência na memória (o mesmo pointer), logo são a mesma coisa.
 ```
+
+### Copiando um objeto
+Uma maneira básica de copiar um objeto é utilizando Object.assign({}, objetoASerCopiado) **shallow copy (só a primeira camada de profundidade)**
+
+**array.slice()** sem argumentos pode ser usado para também fazer uma **shallow copy**
+
+# Variáveis
+
+Definição: uma variável é basicamente um container para dados. É convencional usar camelCase no nome de variáveis, e é regra não usar caracteres especiais (exceto $ e _) e não iniciá-las com digitos
+
+# Sobre o heap e a stack
+
+Call Stack = armazena **value types** (tipos primitivos)
+Memory Heap = armazena **reference types** (objetos)
