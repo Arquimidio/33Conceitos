@@ -47,3 +47,8 @@ Definição: uma variável é basicamente um container para dados. É convencion
 
 Call Stack = armazena **value types** (tipos primitivos)
 Memory Heap = armazena **reference types** (objetos) 
+
+# null e undefined
+
+null = inexistência por vontade do programador (ausência de valor)
+undefined = ausência de definição geralmente resultado de alguma operação no programa
