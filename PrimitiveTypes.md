@@ -3,6 +3,8 @@
 
 Definição: tipos que são **passados por valor** (copiados) e **armazenados na call stack** (elementos ficam um em cima do outro)
 
+Primitivo significa **básico**
+
 ### Quais são?
 1. String (cadeias de caracteres)
 2. Number (floats e ints são do mesmo data type)
