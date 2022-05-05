@@ -11,12 +11,18 @@ Primitivo significa **básico**
 3. Boolean
 4. Undefined
 5. Null
-6. Symbol
+6. NaN
+7. Symbol
 
 ```
 let cinco = 5;
 let outroCinco = cinco; // cinco e outroCinco são cincos diferentes. O valor da variável **cinco** foi **integralmente copiado** para **outroCinco**
+
 ```
+### null e undefined
+
+null = inexistência por vontade do programador (ausência de valor)
+undefined = ausência de definição geralmente resultado de alguma operação no programa
 
 ### Resumo
 1. Tipos primitivos são **imutáveis**
@@ -48,7 +54,7 @@ Definição: uma variável é basicamente um container para dados. É convencion
 Call Stack = armazena **value types** (tipos primitivos)
 Memory Heap = armazena **reference types** (objetos) 
 
-# null e undefined
+# Entendendo Numbers
 
-null = inexistência por vontade do programador (ausência de valor)
-undefined = ausência de definição geralmente resultado de alguma operação no programa
+### Como são registrados na memória?
+
