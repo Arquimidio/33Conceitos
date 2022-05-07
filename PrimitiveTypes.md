@@ -11,8 +11,7 @@ Primitivo significa **básico**
 3. Boolean
 4. Undefined
 5. Null
-6. NaN
-7. Symbol
+6. Symbol
 
 ```
 let cinco = 5;
@@ -27,6 +26,12 @@ undefined = ausência de definição geralmente resultado de alguma operação n
 ### Resumo
 1. Tipos primitivos são **imutáveis**
 2. Tipos primitivos são **passados e também comparados por valor**
+3. Quando tipos primitivos são utilizados, é criado um **objeto em volta deles temporariamente**. Isso permite o acesso às funções do respectivo objeto construtor desse tipo primitivo
+4. Esses objetos em volta dos tipos primitivos são **meramente wrappers**
+5. Quando são avaliados, esses object wrappers sofrem coerção de tipo, tornando-se o valor inicialmente definido no primitivo (exceto o objeto Boolean quando é definido explicitamente como new Boolean('algumacoisa))
+6. Mesmo tendo os object wrappers, tentar alterar "propriedades" de um valor primitivo **não vai funcionar**
+7. Os wrappers raramente são utilizados explicitamente (ex: new String('blablabla'))
+8. O tipo dos valore primitivos começa com **letra minúscula**, enquanto que os **wrappers de primitivos começam com letra maiúscula**
 
 # Tipos não primitivos
 
@@ -55,6 +60,12 @@ Call Stack = armazena **value types** (tipos primitivos)
 Memory Heap = armazena **reference types** (objetos) 
 
 # Entendendo Numbers
+ 
+São baseados no padrão **IEEE754** (64 bit double precision)
+- 1 bit para o sinal de positivo / negativo
+- 11 bits para o expoente
+- 52 bits para o número significante
 
-### Como são registrados na memória?
+# E as funções?
 
+São objetos também, só que objetos especiais que podem ser **chamados / invocados**
