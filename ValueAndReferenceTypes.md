@@ -4,6 +4,13 @@
 
 Definição: tipos passados por referência não são copiados quando atribuídos a variáveis ou passados como argumentos para funções, mas sim sua referência (endereço) na memória é passado. Basicamente um pointer. Se forem feitas alterações nesse dado, elas serão refletidas em todos os lugares em que ele está referenciado.
 
+```
+let x = {number: 10}
+let y = x;
+x.number = 20;
+console.log(x.number, y.number) // 20 20
+```
+
 **O que entra nessa categoria?**
 1. Objetos
 2. Funções
