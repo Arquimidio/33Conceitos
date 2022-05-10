@@ -29,3 +29,5 @@ let y = x;
 x = 20;
 console.log(x, y); //20 10
 ```
+
+x e y são **completamente independentes**
