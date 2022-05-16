@@ -50,3 +50,9 @@ console.log(x, y); //20 10
 ```
 
 x e y são **completamente independentes**
+
+- Os tipos primitivos possuem um **objeto "em volta deles" (object wrapper)**. Isso acontece devido a um mecanismo do JS chamado **auto-boxing**. Por trás dos panos, um **objeto temporário é criado em volta do tipo primitivo** quando ele é tratado como um objeto.
+
+# Por que existe essa diferença?
+
+- Razões de **performance**! Copiar um valor primitivo não é muito custoso em termos de processamento, pois tipos primitivos se referem a apenas um dado. Já com objetos é diferente, visto que eles podem vir a ser grandes e complexos, e copiá-los poderia ser custoso e ineficiente.
