@@ -2,7 +2,7 @@
 
 ### Por referência
 
-Definição: tipos passados por referência não são copiados quando atribuídos a variáveis ou passados como argumentos para funções, mas sim sua referência (endereço) na memória é passado. Basicamente um pointer. Se forem feitas alterações nesse dado, elas serão refletidas em todos os lugares em que ele está referenciado.
+Definição: tipos passados por referência não são copiados quando atribuídos a variáveis ou passados como argumentos para funções, mas sim sua referência (endereço) na memória é passado (basicamente como se fosse a **criação de um apelido... uma pessoa com um apelido ainda é a mesma pessoa**). Basicamente um pointer. Se forem feitas alterações nesse dado, elas serão refletidas em todos os lugares em que ele está referenciado.
 
 As variáveis não os contêm. O que fica armazrnado é uma referência / endereço da memória (um pointer).
 
@@ -30,7 +30,7 @@ Uma forma de verificar se as propriedades e os valores desses objetos são iguai
 
 ### Por valor
 
-Definição: tipos passados por valor são **copiados** toda vez que o dado for passado para funções como argumento ou for atribuído a uma variável. Alterações nele não geram mudanças em outras partes do código para as quais ele foi passado.
+Definição: tipos passados por valor são **copiados** toda vez que o dado for passado para funções como argumento ou for atribuído a uma variável. Alterações nele não geram mudanças em outras partes do código para as quais ele foi passado (exemplo dos **irmãos gêmeos: um nçao fica sem perna quando o outro perde a sua na guerra (wtf kkkkk)**
 
 Tipos primitivos são imutáveis, você não pode alterá-los, apenas substituí-los.
 
@@ -56,3 +56,9 @@ x e y são **completamente independentes**
 # Por que existe essa diferença?
 
 - Razões de **performance**! Copiar um valor primitivo não é muito custoso em termos de processamento, pois tipos primitivos se referem a apenas um dado. Já com objetos é diferente, visto que eles podem vir a ser grandes e complexos, e copiá-los poderia ser custoso e ineficiente.
+
+# Funções puras
+
+Definição: são funções que **não afetam nada fora do seu escopo (não mudam variáveis de fora nem objetos)**. Todas as variáveis presentes em uma função pura sofrem **garbage collection** assim que a função termina sua execução. Uma função que recebe um objeto como parâmetro e faz alterações diretamente nesse objeto (sem fazer uma cópia dele) é uma **função impura**
+
+**Exemplos:** filter, map, reduce
