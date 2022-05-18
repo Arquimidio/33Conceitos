@@ -6,6 +6,8 @@ Definição: tipos passados por referência não são copiados quando atribuído
 
 As variáveis não os contêm. O que fica armazrnado é uma referência / endereço da memória (um pointer).
 
+São **armazenados na MEMORY HEAP**
+
 ```
 let x = {number: 10}
 let y = x;
@@ -52,6 +54,8 @@ console.log(x, y); //20 10
 x e y são **completamente independentes**
 
 - Os tipos primitivos possuem um **objeto "em volta deles" (object wrapper)**. Isso acontece devido a um mecanismo do JS chamado **auto-boxing**. Por trás dos panos, um **objeto temporário é criado em volta do tipo primitivo** quando ele é tratado como um objeto.
+
+- São **armazenados na CALL STACK (assim como as referências par objetos)**
 
 # Por que existe essa diferença?
 
