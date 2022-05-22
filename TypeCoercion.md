@@ -1,8 +1,27 @@
+# Tipos de conversão
+
+- A conversão pode ser realizada para 3 tipos diferentes
+1. String (strings convertidas para números e que tem apenas caracteres de espaço resultam em 0 em vez de NaN)
+2. Number (implícita com operadores de comparação (>=, <, etc), bitwise, aritméticos e igualdade simples (== e !=)
+3. Boolean (implícita em contextos lógicos e com os operadores !, || &&)
+
+- A lógica de conversão **funciona de forma diferente para PRIMITIVOS e OBJETOS**
+
 # Coerção implícita
 
-definição: tentativa do JavaScript de converter um **valor de tipo inesperado** para um do **tipo esperado** (a liguagem "tenta advinhar" que tipo de operação o programador pretendia realizar)
+definição: É o processo de conversão de um valor de um tipo para outro. Tentativa do JavaScript de converter um **valor de tipo inesperado** para um do **tipo esperado** (a liguagem "tenta advinhar" que tipo de operação o programador pretendia realizar). Acontece em operações (+, -, ==, etc) e também em determinados contextos (if(something)...)
 
-**EVITE SEMPRE QUE POSSÍVEL DEIXAR QUE ISSO ACONTEÇA**
+Obs1: isso acontece porque **JavaScript é uma linguagem fracamente tipada**
+Obs2: o operador **===** **NÃO REALIZA COERÇÃO IMPLÍCITA**
+Obs3: symbols só podem sofrer coerção para string se ela for **explícita**
+Obs4: **null em number é 0** e **undefined em number é NaN**
+
+### Regras a serem lembradas
+
+1. null == null (true) e null == undefined (true)
+2. NaN == NaN (false) (NaN não é igual a outro NaN)
+
+**EVITE SEMPRE QUE POSSÍVEL A COERÇÃO IMPLÍCITA**
 
 ### Valores **não numéricos** em **expressões numéricas**
 1. **Strings**: se (*, -, /, %) resulta em **conversão em Number**, já se (+) resulta em **concatenação**. Se a string contiver **caracteres não numéricos**, resulta em **NaN**
@@ -53,3 +72,15 @@ NaN === NaN // false
 #### isNaN e Number.isNaN
 - isNaN() converte o valor antes de dar o resultado **EVITE**
 - Number.isNaN() faz a comparação de uma maneira mair previsível **ADOTE**
+
+# Coerção Explícita (type casting)
+
+Definição: quando o programador expressa a intenção de converter o tipo de um dado para outro tipo, essa é conversão explícita (por exemplo, Number('12').
+
+- Conversões explícitas
+1. String()
+2. Boolean()
+3. Number()
+
+
+
