@@ -82,5 +82,14 @@ Definição: quando o programador expressa a intenção de converter o tipo de u
 2. Boolean()
 3. Number()
 
+# Conversão de objetos
+
+1. Boolean = sempre serão **TRUE**
+2. Number = tenta converter com **valueOf**. Se não der, fallback para **toString**. Se não der, joga um ERRO.
+3. String = tenta converter com **toString**. Se não der, fallback para "valueOf". Se não der, joga um ERRO.
+
+### Conversão de objetos no ES6
+
+- Posso alterar o código a fundo mudando **[Symbol.toPrimitive]**, que determina o que acontecerá na conversão de um objeto para um primitivo
 
 
