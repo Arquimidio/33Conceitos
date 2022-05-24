@@ -1,7 +1,7 @@
 # Tipos de conversão
 
 - A conversão pode ser realizada para 3 tipos diferentes
-1. String (strings convertidas para números e que tem apenas caracteres de espaço resultam em 0 em vez de NaN) (tipos primitivos têm **stringificação natural**)
+1. String (strings convertidas para números e que tem apenas caracteres de espaço resultam em 0 em vez de NaN) (tipos primitivos têm **stringificação natural**. null vira "null", undefined vira "undefined", etc)
 2. Number (implícita com operadores de comparação (>=, <, etc), bitwise, aritméticos e igualdade simples (== e !=)
 3. Boolean (implícita em contextos lógicos e com os operadores !, || &&)
 
@@ -20,6 +20,8 @@ Obs2: o operador **===** **NÃO REALIZA COERÇÃO IMPLÍCITA**
 Obs3: symbols só podem sofrer coerção para string se ela for **explícita**
 
 Obs4: **null em number é 0** e **undefined em number é NaN**
+
+Obs5: JSON.stringify **NÃO É COERÇÃO**
 
 ### Regras a serem lembradas
 
@@ -96,5 +98,11 @@ Definição: quando o programador expressa a intenção de converter o tipo de u
 ### Conversão de objetos no ES6
 
 - Posso alterar o código a fundo mudando **[Symbol.toPrimitive]**, que determina o que acontecerá na conversão de um objeto para um primitivo
+
+# JSON.stringify
+
+1. Não é coerção
+2. É uma forma de transformar objetos em strings válidas JSON
+3. Se houver um método **toJSON()**, retorna o resultado da invocação dessa função stringificado
 
 
