@@ -1,15 +1,17 @@
 # Tipos de conversão
 
 - A conversão pode ser realizada para 3 tipos diferentes
-1. String (strings convertidas para números e que tem apenas caracteres de espaço resultam em 0 em vez de NaN)
+1. String (strings convertidas para números e que tem apenas caracteres de espaço resultam em 0 em vez de NaN) (tipos primitivos têm **stringificação natural**)
 2. Number (implícita com operadores de comparação (>=, <, etc), bitwise, aritméticos e igualdade simples (== e !=)
 3. Boolean (implícita em contextos lógicos e com os operadores !, || &&)
 
 - A lógica de conversão **funciona de forma diferente para PRIMITIVOS e OBJETOS**
 
-# Coerção implícita
+# Coerção implícita(TYPE COERCION)
 
 definição: É o processo de conversão de um valor de um tipo para outro. Tentativa do JavaScript de converter um **valor de tipo inesperado** para um do **tipo esperado** (a liguagem "tenta advinhar" que tipo de operação o programador pretendia realizar). Acontece em operações (+, -, ==, etc) e também em determinados contextos (if(something)...)
+
+É um **efeito colateral de uma operação**
 
 Obs1: isso acontece porque **JavaScript é uma linguagem fracamente tipada**
 
@@ -76,7 +78,7 @@ NaN === NaN // false
 - isNaN() converte o valor antes de dar o resultado **EVITE**
 - Number.isNaN() faz a comparação de uma maneira mair previsível **ADOTE**
 
-# Coerção Explícita (type casting)
+# Coerção Explícita (TYPE CASTING)
 
 Definição: quando o programador expressa a intenção de converter o tipo de um dado para outro tipo, essa é conversão explícita (por exemplo, Number('12').
 
