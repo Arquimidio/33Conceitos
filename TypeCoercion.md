@@ -12,8 +12,11 @@
 definição: É o processo de conversão de um valor de um tipo para outro. Tentativa do JavaScript de converter um **valor de tipo inesperado** para um do **tipo esperado** (a liguagem "tenta advinhar" que tipo de operação o programador pretendia realizar). Acontece em operações (+, -, ==, etc) e também em determinados contextos (if(something)...)
 
 Obs1: isso acontece porque **JavaScript é uma linguagem fracamente tipada**
+
 Obs2: o operador **===** **NÃO REALIZA COERÇÃO IMPLÍCITA**
+
 Obs3: symbols só podem sofrer coerção para string se ela for **explícita**
+
 Obs4: **null em number é 0** e **undefined em number é NaN**
 
 ### Regras a serem lembradas
